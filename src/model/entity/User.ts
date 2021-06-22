@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-/* eslint-disable import/prefer-default-export */
 import {
   Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn,
 } from 'typeorm';
@@ -7,11 +6,9 @@ import {
 import { v4 as uuid } from 'uuid';
 
 @Entity()
-export class User {
+class User {
   constructor() {
-    if (!this.id) {
-      this.id = uuid();
-    }
+    if (!this.id) this.id = uuid();
   }
 
   @PrimaryColumn()
@@ -32,3 +29,5 @@ export class User {
   @UpdateDateColumn()
   updated_at: Date;
 }
+
+export { User };
