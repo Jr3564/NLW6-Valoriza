@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable camelcase */
 import {
   Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn,
