@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable class-methods-use-this */
+import { getCustomRepository } from 'typeorm';
 import { UserRepository } from '../model/repositories/UserRepository';
 
 interface IUserRequest {
@@ -10,7 +11,7 @@ interface IUserRequest {
 
 class CreateUserService {
   async execute({ name, email, admin } : IUserRequest) {
-    const usersRepository = new UserRepository();
+    const usersRepository = getCustomRepository(UserRepository);
 
     if (!email) throw new Error('Email incorrect');
 

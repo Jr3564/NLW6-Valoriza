@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable class-methods-use-this */
 import { Request, Response } from 'express';
 import { CreateUserService } from '../service/CreateUserService';
