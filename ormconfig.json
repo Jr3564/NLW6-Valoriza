@@ -1,0 +1,24 @@
+{
+   "type": "mysql",
+   "host": "localhost",
+   "port": 3306,
+   "username": "root",
+   "password": "sua_senha_aqui",
+   "database": "valoriza",
+   "synchronize": true,
+   "logging": false,
+   "entities": [
+      "src/model/entity/**/*.ts"
+   ],
+   "migrations": [
+      "src/model/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "src/model/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/model/entity",
+      "migrationsDir": "src/model/migration",
+      "subscribersDir": "src/model/subscriber"
+   }
+}
