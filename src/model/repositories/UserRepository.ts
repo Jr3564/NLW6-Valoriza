@@ -8,4 +8,4 @@ class UserRepository extends Repository<User> {
 
 }
 
-export default { UserRepository };
+export { UserRepository };
