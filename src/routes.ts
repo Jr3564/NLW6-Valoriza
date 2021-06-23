@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 import { TagController } from './controller/TagController';
 import { UserController } from './controller/UserController';
-
+import { ensureAdmin } from './middlewares/ensureAdmin'
 const router = Router();
 
 const userController = new UserController();
@@ -12,7 +12,7 @@ router.route('/users')
   .post(userController.create);
 
 router.route('/tags')
-  .post(tagController.create);
+  .post(ensureAdmin, tagController.create);
 
 
 export { router };
