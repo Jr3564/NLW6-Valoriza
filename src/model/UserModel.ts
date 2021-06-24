@@ -15,6 +15,12 @@ class UserModel {
     const user: IUserRequest = await repository.findOne({ email });
     return user;
   }
+
+  async getById(id: string) {
+    const repository: UserRepository = getCustomRepository(UserRepository);
+    const user: IUserRequest = await repository.findOne(id);
+    return user;
+  }
 }
 
 export { UserModel };
