@@ -3,7 +3,7 @@ import { UserService } from '../service/UserService';
 
 export class UserController {
   async create(request: Request, response: Response) {
-    const { name, email, admin, password } = request.body;
+    const { name, email, admin = false, password } = request.body;
 
     const userService = new UserService();
 
