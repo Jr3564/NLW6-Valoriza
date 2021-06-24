@@ -1,7 +1,7 @@
 import { getCustomRepository } from 'typeorm';
 import { TagRepository } from './repositories/TagRepository';
 
-class TagModel {
+export default class TagModel {
   async create(name: string) {
     const repository: TagRepository = getCustomRepository(TagRepository);
     const tag = await repository.create({ name });
@@ -15,5 +15,3 @@ class TagModel {
     return tag;
   }
 }
-
-export { TagModel };

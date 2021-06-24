@@ -2,9 +2,9 @@ import { compare } from "bcryptjs";
 import { getCustomRepository } from "typeorm";
 import { UserAuthInterface, UserInterface } from "../interfaces";
 import { UserRepository } from "../model/repositories/UserRepository";
-import { Authentication } from "./auth/Authentication"
+import Authentication from "./auth/Authentication"
 
-export class AuthUserService {
+export default class AuthUserService {
   async generateToken(loginUser: UserAuthInterface) {
     const repository = getCustomRepository(UserRepository);
     const user : UserInterface = await repository.findOne({ email: loginUser.email });

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { ComplimentService } from '../service/ComplimentService';
+import { ComplimentService } from '../service';
 
-export class ComplimentController {
+export default class ComplimentController {
   async create(request: Request, response: Response) {
     const { tag_id, user_sender, user_receiver, message } = request.body;
 

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { UserService } from '../service/UserService';
+import { UserService } from '../service';
 
-export class UserController {
+export default class UserController {
   async create(request: Request, response: Response) {
     const { name, email, admin = false, password } = request.body;
 

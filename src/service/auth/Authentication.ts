@@ -1,7 +1,7 @@
-import UserAuthInterface from "../../interfaces/UserAuthInterface";
+import { UserAuthInterface } from "../../interfaces";
 import { sign, verify, decode } from 'jsonwebtoken';
 
-export class Authentication {
+export default class Authentication {
   private readonly secret : string;
   constructor (secret?: string) {
     this.secret = secret || 'umsegredomuitoseguro';

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { AuthUserService } from '../service/AuthUserService';
+import { AuthUserService } from '../service';
 
-export class AuthUserController {
+export default class AuthUserController {
   async getToken(req: Request, res: Response) {
     const { email, password } = req.body;
 

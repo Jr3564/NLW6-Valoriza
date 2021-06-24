@@ -1,6 +1,6 @@
-import { TagModel } from '../model/TagModel';
+import { TagModel } from '../model';
 
-export class TagService {
+export default class TagService {
   async create(name: string) {
     const tagModel = new TagModel();
 

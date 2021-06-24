@@ -1,29 +1,18 @@
-import { NextFunction, Request, Response } from "express";
-
-require('reflect-metadata');
+import 'reflect-metadata';
+import 'express-async-errors';
+import router from "./routes";
+import { errorHandler } from "./middlewares";
 
 require('typeorm').createConnection();
 
 const express = require('express');
-
-require('express-async-errors');
-
-const { router } = require('./routes');
 
 const app = express();
 
 app.use(express.json());
 app.use(router);
 
-app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
-  if (err instanceof Error) {
-    return res.status(400).json({ error: err.message })
-  }
-  return res.status(500).json({
-    status: "error",
-    message: "Internal Server Error"
-  })
-})
+app.use(errorHandler);
 
 const PORT = 3000;
 

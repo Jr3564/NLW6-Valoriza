@@ -2,7 +2,7 @@ import { getCustomRepository } from 'typeorm';
 import { UserRepository } from './repositories/UserRepository';
 import IUserRequest from '../interfaces/UserInterface';
 
-class UserModel {
+export default class UserModel {
   async create(newUser: IUserRequest) {
     const repository: UserRepository = getCustomRepository(UserRepository);
     const user: IUserRequest = await repository.create(newUser);
@@ -22,5 +22,3 @@ class UserModel {
     return user;
   }
 }
-
-export { UserModel };

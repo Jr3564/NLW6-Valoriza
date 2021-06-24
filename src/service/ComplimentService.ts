@@ -1,8 +1,7 @@
-import { ComplimentModel } from '../model/ComplimentModel';
+import { ComplimentModel, UserModel } from '../model';
 import { ComplimentInterface } from '../interfaces';
-import { UserModel } from '../model/UserModel';
 
-export class ComplimentService {
+export default class ComplimentService {
   async create(newCompliment: ComplimentInterface) {
     const complimentModel = new ComplimentModel();
 

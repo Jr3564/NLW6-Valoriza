@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { TagService } from '../service/TagService';
+import { TagService } from '../service';
 
-export class TagController {
+export default class TagController {
   async create(request: Request, response: Response) {
     const { name } = request.body;
 

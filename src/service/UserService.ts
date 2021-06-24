@@ -1,9 +1,9 @@
-import IUserRequest from '../interfaces/UserInterface';
-import { UserModel } from '../model/UserModel';
+import { UserInterface } from '../interfaces';
+import { UserModel } from '../model';
 import { hash } from 'bcryptjs';
 
-export class UserService {
-  async create(user : IUserRequest) {
+export default class UserService {
+  async create(user : UserInterface) {
     const userModel = new UserModel();
     
     if (!user.email) throw new Error('Email incorrect');
