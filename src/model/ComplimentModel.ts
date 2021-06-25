@@ -12,7 +12,10 @@ export default class ComplimentModel {
 
   async getAllSendByUserId (userSenderId: string) {
     const repository = getCustomRepository(ComplimentRepository);
-    const result = await repository.find({ where: { user_sender: userSenderId } });
+    const result = await repository.find({
+      where: { user_sender: userSenderId },
+      relations: ["userSender", "userReceiver", "tag"]
+    });
     return result;
   }
 
