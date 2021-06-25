@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-export default (err: Error, _req: Request, res: Response, _next: NextFunction) => {
+const errorHandler = (err: Error, _req: Request, res: Response, _next: NextFunction) => {
   if (err instanceof Error) {
     return res.status(400).json({ error: err.message })
   }
@@ -9,3 +9,5 @@ export default (err: Error, _req: Request, res: Response, _next: NextFunction) =
     message: "Internal Server Error"
   })
 }
+
+export default errorHandler;
