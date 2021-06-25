@@ -1,5 +1,5 @@
 import { TagModel } from '../model';
-
+import { classToPlain } from 'class-transformer';
 export default class TagService {
   async create(name: string) {
     const tagModel = new TagModel();
@@ -15,6 +15,7 @@ export default class TagService {
 
   async getAll() {
     const tagModel = new TagModel();
-    return tagModel.getAll();
+    const tags = await tagModel.getAll();
+    return classToPlain(tags);
   }
 }
