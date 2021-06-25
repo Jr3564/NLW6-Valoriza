@@ -19,6 +19,7 @@ router.route('/tags')
   .post(ensureAuthenticated, ensureAdmin, tagController.create);
 
 router.route('/compliments')
+  .get(ensureAuthenticated, complimentController.getByQueryParam)
   .post(ensureAuthenticated, complimentController.create);
 
 
