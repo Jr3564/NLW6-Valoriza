@@ -1,7 +1,11 @@
-# Awesome Project Build with TypeORM
+# Milhas extra
 
-Steps to run this project:
-
-1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+[] Errors customizados.
+[] Adicionar variáveis de ambiente.
+[] Configurar eslint.
+[] Verificar estrutura do projeto de acordo com SOLID e REST.
+[] Melhorar tipagens.
+[] Testes.
+[] Deploy.
+[] Criar Font.
+[] Adicionar funcionalidade de ao receber um elogio é enviado uma notificação por email.
