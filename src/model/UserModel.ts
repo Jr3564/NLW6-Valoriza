@@ -1,24 +1,24 @@
 import { getCustomRepository } from 'typeorm';
 import { UserRepository } from './repositories/UserRepository';
-import IUserRequest from '../interfaces/UserInterface';
+import { UserInterface } from '../interfaces';
 
 export default class UserModel {
-  async create(newUser: IUserRequest) {
+  async create(newUser: UserInterface) {
     const repository: UserRepository = getCustomRepository(UserRepository);
-    const user: IUserRequest = await repository.create(newUser);
+    const user = await repository.create(newUser);
     await repository.save(user);
     return user;
   }
 
-  async getByEmail(email: string) {
+  async getByEmail(email: string) : Promise<UserInterface> {
     const repository: UserRepository = getCustomRepository(UserRepository);
-    const user: IUserRequest = await repository.findOne({ email });
+    const user = await repository.findOne({ email });
     return user;
   }
 
-  async getById(id: string) {
+  async getById(id: string) : Promise<UserInterface> {
     const repository: UserRepository = getCustomRepository(UserRepository);
-    const user: IUserRequest = await repository.findOne(id);
+    const user = await repository.findOne(id);
     return user;
   }
 }
