@@ -10,6 +10,11 @@ export default class UserModel {
     return user;
   }
 
+  async getAll() : Promise<UserInterface[]> {
+    const repository: UserRepository = getCustomRepository(UserRepository);
+    return repository.find();
+  }
+
   async getByEmail(email: string) : Promise<UserInterface> {
     const repository: UserRepository = getCustomRepository(UserRepository);
     const user = await repository.findOne({ email });

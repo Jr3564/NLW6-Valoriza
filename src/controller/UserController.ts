@@ -11,4 +11,10 @@ export default class UserController {
 
     return response.json(user);
   }
+
+  async getAll(_request: Request, response: Response) {
+    const userService = new UserService();
+    const users = await userService.getAll();
+    return response.json(users);
+  }
 }

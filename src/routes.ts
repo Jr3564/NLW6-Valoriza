@@ -13,6 +13,7 @@ router.route('/login')
   .get(authController.getToken);
 
 router.route('/users')
+  .get(ensureAuthenticated, ensureAdmin, userController.getAll)
   .post(userController.create);
 
 router.route('/tags')

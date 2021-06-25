@@ -15,4 +15,9 @@ export default class UserService {
 
     return userModel.create({ ...user, password: passwordHash });
   }
+
+  async getAll() {
+    const userModel = new UserModel();
+    return userModel.getAll();
+  }
 }
