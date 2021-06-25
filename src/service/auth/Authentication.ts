@@ -1,4 +1,3 @@
-import { UserAuthInterface } from "../../interfaces";
 import { sign, verify, decode } from 'jsonwebtoken';
 
 export default class Authentication {
@@ -12,7 +11,7 @@ export default class Authentication {
     throw new Error('Token inválido')
   };  
 
-  generateToken(user: UserAuthInterface) {
+  generateToken(user) {
     return sign(user, this.secret, {
       expiresIn: '7d',
       algorithm: 'HS256',
