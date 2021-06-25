@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { TagController, UserController, AuthUserController, ComplimentController } from './controller';
-import { ensureAdmin } from './middlewares'
+import { ensureAdmin, ensureAuthenticated } from './middlewares'
 
 const userController = new UserController();
 const tagController = new TagController();
@@ -16,10 +16,10 @@ router.route('/users')
   .post(userController.create);
 
 router.route('/tags')
-  .post(ensureAdmin, tagController.create);
+  .post(ensureAuthenticated, ensureAdmin, tagController.create);
 
 router.route('/compliments')
-  .post(ensureAdmin, complimentController.create);
+  .post(ensureAuthenticated, ensureAdmin, complimentController.create);
 
 
 export default router;
