@@ -1,6 +1,7 @@
 import { UserInterface } from '../interfaces';
 import { UserModel } from '../model';
 import { hash } from 'bcryptjs';
+import { classToPlain } from 'class-transformer';
 
 export default class UserService {
   async create(user : UserInterface) {
@@ -18,6 +19,6 @@ export default class UserService {
 
   async getAll() {
     const userModel = new UserModel();
-    return userModel.getAll();
+    return classToPlain(userModel.getAll());
   }
 }
