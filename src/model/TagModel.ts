@@ -9,6 +9,12 @@ export default class TagModel {
     return tag;
   }
 
+  async getAll() {
+    const repository: TagRepository = getCustomRepository(TagRepository);
+    const tag = await repository.find();
+    return tag;
+  }
+
   async getByName(name: string) {
     const repository: TagRepository = getCustomRepository(TagRepository);
     const tag = await repository.findOne({ name });

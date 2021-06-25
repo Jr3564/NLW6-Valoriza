@@ -12,4 +12,9 @@ export default class TagService {
     
     return tagModel.create(name);  
   }
+
+  async getAll() {
+    const tagModel = new TagModel();
+    return tagModel.getAll();
+  }
 }

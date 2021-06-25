@@ -16,6 +16,7 @@ router.route('/users')
   .post(userController.create);
 
 router.route('/tags')
+  .get(ensureAuthenticated, tagController.getAll)
   .post(ensureAuthenticated, ensureAdmin, tagController.create);
 
 router.route('/compliments')

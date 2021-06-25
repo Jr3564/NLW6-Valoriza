@@ -9,6 +9,15 @@ export default class TagController {
 
     const tag = await tagService.create(name);
 
-    return response.json(tag);
+    return response.status(200).json(tag);
+  }
+
+  async getAll(request: Request, response: Response) {
+    const tagService = new TagService();
+
+    const tags = await tagService.getAll();
+  
+    return response.status(200).json(tags);
+
   }
 }
